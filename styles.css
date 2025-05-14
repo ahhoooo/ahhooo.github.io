@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('background.jpg') repeat center center fixed;
+    background: url('background.jpg') repeat;
     background-size: cover;
     background-position: top center;
     background-attachment: scroll;
