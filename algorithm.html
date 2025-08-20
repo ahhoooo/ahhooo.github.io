@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algorithm · Porcupine</title>
+<link rel="icon" href="assets/images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/script.js"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand">PORCUPINE</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">Overview</a>
+      <a href="statement.html">Statement</a>
+      <a href="features.html">Features</a>
+      <a href="algorithm.html">Algorithm</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="demos.html">Demos</a>
+      <a href="docs.html">Docs</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="ghost" id="themeToggle" aria-label="Toggle Theme">☾</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+<section class="section">
+  <h2>Core Workflow</h2>
+  <ol>
+    <li>Offset: using OffsetOnSurface, etc.;</li>
+    <li>Cleanup: directional angle filtering, etc.;</li>
+    <li>Optimization: adjust curves that still do not meet requirements;</li>
+    <li>Placement: brick size and offset controlled by parameters <code>[L, W, H]</code> and <code>row_state['step_index']</code>;</li>
+    <li>Collision detection and adjustment: detect conflicting bricks and re-adjust.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Module Structure</h2>
+  <div class="card">
+    <h3>Sample Code</h3>
+    <pre><code class="language-csharp">
+List<Curve> ExtractBreakCurvesByGaps(
+  Curve curve,                // Input base curve
+  List<Point3d> centers,      // Sequence of brick centers
+  double threshold_L,         // Minimum allowed length
+  bool closedcrv_or_not,      // Whether the curve is closed
+  tolerance_0, tolerance_1, tolerance_2   // Different tolerance strategies
+)
+{
+  List<Curve> breakCurves = new List<Curve>();
+  // Basic condition check
+  if (centers == null || centers.Count < 2 || curve == null || !curve.IsValid)
+      return breakCurves;
+  int count = centers.Count;
+  // Iterate through sub-curves between adjacent brick centers
+  for (int i = 0; i < count - 1; i++)
+  {
+      Point3d pt1 = centers[i];
+      Point3d pt2 = centers[i + 1];
+      double t1, t2;
+      bool succ1 = curve.ClosestPoint(pt1, out t1);
+      bool succ2 = curve.ClosestPoint(pt2, out t2);
+      if (succ1 && succ2 && Math.Abs(t1 - t2) > 1e-6)
+      {
+          Curve subcurve = curve.Trim(t1, t2);
+          if (subcurve != null && subcurve.IsValid &&
+              subcurve.GetLength() > tolerance_2 * threshold_L)
+          { breakCurves.Add(subcurve); }
+      }
+  }
+  // Handle connection between end and start
+  Point3d pt_last = centers[count - 1];
+  Point3d pt_other = closedcrv_or_not ? centers[0] : curve.PointAtEnd;
+  double tA, tB;
+  bool sA = curve.ClosestPoint(pt_last, out tA);
+  bool sB = curve.ClosestPoint(pt_other, out tB);
+  if (sA && sB && Math.Abs(tA - tB) > 1e-6)
+  {
+      Curve subcurve = curve.Trim(tA, tB);
+      if (subcurve != null && subcurve.IsValid &&
+          subcurve.GetLength() > tolerance_1 * threshold_L)
+      { breakCurves.Add(subcurve); }
+  }
+  // Handle start condition for open curves
+  if (!closedcrv_or_not)
+  {
+      pt_last = centers[0];
+      pt_other = curve.PointAtStart;
+      sA = curve.ClosestPoint(pt_last, out tA);
+      sB = curve.ClosestPoint(pt_other, out tB);
+      if (sA && sB && Math.Abs(tA - tB) > 1e-6)
+      {
+          Curve subcurve = curve.Trim(tB, tA);
+          if (subcurve != null && subcurve.IsValid &&
+              subcurve.GetLength() > tolerance_0 * threshold_L)
+          { breakCurves.Add(subcurve); }
+      }
+  }
+  return breakCurves;
+}
+    </code></pre>
+  </div>
+
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h4>About Porcupine</h4>
+        <p>Porcupine is a Grasshopper plugin for arranging standard masonry units on freeform surfaces, emphasizing constructability, continuity, and curvature conformity.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: <a href="mailto:hanyi19992008@gmail.com">hanyi19992008@gmail.com</a></li>
+          <li>GitHub: <a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Porcupine. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,37 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hanyi – Architecture Intro</title>
-  <link rel="stylesheet" href="styles.css">
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Overview · Porcupine</title>
+<link rel="icon" href="assets/images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/script.js"></script>
 
 </head>
 <body>
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand">PORCUPINE</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">Overview</a>
+      <a href="statement.html">Statement</a>
+      <a href="features.html">Features</a>
+      <a href="algorithm.html">Algorithm</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="demos.html">Demo</a>
+      <a href="docs.html">Docs</a>
+      <a href="downloads.html">Download</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="ghost" id="themeToggle" aria-label="Toggle Theme">☾</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
 
-  <!-- 背景图容器 -->
-  <div class="bg"></div>
+<main class="container">
+<section class="hero">
+  <p class="kicker">Grasshopper plugin · Freeform Masonry</p>
+  <h1>Porcupine: A Buildable Brick Layout System for Freeform Surfaces</h1>
+  <p>While preserving the “standardization” of bricks and the “freedom” of curved surfaces, it emphasizes buildability, continuity, and curvature conformity—without cutting.</p>
+  <div class="badges">
+    <span class="badge">System</span>
+    <span class="badge">C#</span>
+    <span class="badge">Rhino</span>
+    <span class="badge">Grasshopper</span>
+    <span class="badge">Buildable</span>
+    <span class="badge">1:8 Prototype × 3</span>
+  </div>
+  <div class="hero-cta">
+    <a class="cta" href="statement.html">Full Statement</a>
+    <a class="cta" href="docs.html">User Guide</a>
+  </div>
+</section>
 
-  <!-- 页面主要内容 -->
-  <h1 class="title-white">Architecture Thesis for 2025– Hanyi</h1>
+<section class="section">
+  <div class="grid-3">
+    <div class="card">
+      <h3>Why It Matters</h3>
+      <p>It resolves the long-standing contradiction between the “equality of identical modules” and the “freedom of complex geometries,” providing buildable order for freeform masonry.</p>
+    </div>
+    <div class="card">
+      <h3>Core Capabilities</h3>
+      <ul>
+        <li>Brick layout on arbitrary freeform surfaces</li>
+        <li>Self-correcting algorithm</li>
+        <li>Support for apertures and boundary handling</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Future Evolution</h3>
+      <p>Aiming toward self-supporting path calculation, robotic assembly, broader material generalization (stone / adobe / recycled brick), and construction in extreme environments.</p>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <div class="question">NAME (GIVEN OR CHOSEN) AND PRONOUNS</div>
-    <div>Yi Han (he/him), Pronouns: Yee Han</div>
+<section class="section">
+  <h2>One Minute Overview</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Core Narrative</h3>
+      <p>Porcupine provides a computational framework where “standard units retain their identity while conforming to curved surfaces,” avoiding the trade-off of “customization for freedom” or “simplification for constructability.”</p>
+    </div>
+    <div class="card">
+      <h3>Demo Video</h3>
+      <div class="responsive-video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/5JP09KWo_Ds?rel=0&modestbranding=1"
+          title="Porcupine Demo"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style="width:100%;height:100%;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h4>About Porcupine</h4>
+        <p>Porcupine is a Grasshopper plugin for standard unit layouts on freeform surfaces, emphasizing buildability, continuity, and curvature conformity.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="downloads.html">Download</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: <a href="mailto:hanyi19992008@gmail.com">hanyi19992008@gmail.com</a></li>
+          <li>GitHub: <a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Porcupine. All rights reserved.</div>
+  </div>
+</footer>
 
-    <div>UNDER CONSTRUCTION...</div>  
-
-  </section>
-
-  <!--背景滚动速度 -->
-  <script>
-    window.addEventListener('scroll', function() {
-      const scrolled = window.scrollY;
-      const bg = document.querySelector('.bg');
-      bg.style.transform = `translateY(${scrolled * -1.5}px)`; 
-    });
-  </script>
 </body>
-</html>
 </html>

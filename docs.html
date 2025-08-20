@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Documentation · Porcupine</title>
+<link rel="icon" href="assets/images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/script.js"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand">PORCUPINE</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">Overview</a>
+      <a href="statement.html">Statement</a>
+      <a href="features.html">Features</a>
+      <a href="algorithm.html">Algorithm</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="demos.html">Demos</a>
+      <a href="docs.html">Docs</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="ghost" id="themeToggle" aria-label="Toggle Theme">☾</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+<section class="section">
+  <h2>Quick Start</h2>
+    <li>Download and install the Porcupine .gha plugin;</li>
+    <li>Load the component in Grasshopper, input the target surface and guiding curve;</li>
+  <p>Main component: BrickTiling:</p>
+  <ol>
+    <li>Set parameters: <code>BrickSize_LWH</code> (length, width, height of the brick), <code>MIN/MAXJoint</code> (joint range along each row), <code>MIN/MAXJointc</code> (joint range between rows), <code>Staggered_Distance</code> (initial offset distance), <code>Closed_First_Pt_Rate</code> (relative starting position on closed curves), <code>Dir</code> (initial brick orientation);</li>
+    <li>Click RUN, adjust settings at any time, and view the results.</li>
+  </ol>
+  <p>Gap-filling component: BrickFillGap:</p>
+  <ol>
+    <li>Set parameters: <code>BrickSize_LWH</code> (length, width, height of the brick), <code>Existed_Bricks</code> (already placed bricks), <code>MIN/MAXJoint</code> (joint range along each row);</li>
+    <li>Wait for confirmation and check the results.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Parameter Reference</h2>
+  <table class="table">
+    <h3>BrickTiling</h3>
+    <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    <tr><td>BrickSize_LWH</td><td>list</td><td> NONE </td><td>Brick length, width, height (mm)</td></tr>
+    <tr><td>MINJoint / MAXJoint</td><td>number</td><td>3 / 8</td><td>Joint range between bricks within the same row (mm)</td></tr>
+    <tr><td>MINJointc / MAXJointc</td><td>number</td><td>3 / 8</td><td>Joint range between adjacent rows (mm)</td></tr>
+    <tr><td>Staggered_Distance</td><td>number</td><td>0</td><td>Initial offset distance (can be set relative to brick length)</td></tr>
+    <tr><td>Closed_First_Pt_Rate</td><td>boolean</td><td>0</td><td>Relative starting position on a closed curve</td></tr>
+    <tr><td>Dir</td><td>boolean</td><td>\</td><td>Initial direction vector for brick generation</td></tr>
+  </table>
+  <table class="table">
+    <h3>BrickFillGap</h3>
+    <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    <tr><td>BrickSize_LWH</td><td>list[number, number, number]</td><td> NONE </td><td>Brick length, width, height (mm)</td></tr>
+    <tr><td>Existed_Bricks</td><td>brep</td><td> NONE </td><td>Already placed bricks</td></tr>
+    <tr><td>MINJoint / MAXJoint</td><td>number</td><td>3 / 8</td><td>Joint range between bricks within the same row (mm)</td></tr>
+  </table>
+</section>
+
+
+<section class="section">
+  <h2>Other Parameters</h2>
+  <P>
+  For UI simplicity, some parameters that are less frequently modified are hidden. They can be adjusted if necessary to extend the plugin’s capabilities.
+  </P>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h4>About Porcupine</h4>
+        <p>Porcupine is a Grasshopper plugin for arranging standard masonry units on freeform surfaces, emphasizing buildability, continuity, and curvature conformity.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: <a href="mailto:contact@example.com">hanyi19992008@gmail.com</a></li>
+          <li>GitHub: <a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Porcupine. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

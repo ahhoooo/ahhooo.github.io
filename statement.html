@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Statement · Porcupine</title>
+<link rel="icon" href="assets/images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/script.js"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand">PORCUPINE</a>
+    <nav class="nav" id="nav">
+      <a href="index.html">Overview</a>
+      <a href="statement.html">Statement</a>
+      <a href="features.html">Features</a>
+      <a href="algorithm.html">Algorithm</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="demos.html">Demos</a>
+      <a href="docs.html">Docs</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="ghost" id="themeToggle" aria-label="Toggle Theme">☾</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+<section class="section">
+  <h2>Statement</h2>
+  <div class="card">
+    <p>
+      Porcupine is a parametric plug-in for Grasshopper that allows for free-form masonry layouts on topological or topographic surfaces. 
+      It enables architects and designers to arrange standard masonry units seamlessly across complex geometries, maintaining continuity, 
+      collision-free placement, and curvature conformity without custom-cutting bricks. By addressing the limitations of existing approaches 
+      to freeform brick masonry, Porcupine offers a computational framework that bridges design adaptability with construction feasibility.
+    </p>
+    <p>
+      Current approaches to brick masonry on freeform surfaces reveal three recurring limitations:
+    </p>
+    <ul>
+      <li><strong>Formal freedom yet conventional structure</strong> — Projects such as Gehry’s achieve visually complex surfaces but remain bound to horizontal layering and customized bricks, never fully liberating units within free geometry.</li>
+      <li><strong>Forms dictated entirely by force paradigms</strong> — Dieste’s arches and shells are defined by compressive paths; bricks act as particles in a continuous medium rather than autonomous design units. Once aggregated, their configuration appears intricate but is effectively fixed, resisting local variation or adaptive control.</li>
+      <li><strong>Expressive collage without systemic logic</strong> — Works like Tony Cragg’s sculptures or Wang Shu’s Ningbo Museum employ irregular masonry driven by cultural or artisanal intuition, but cannot translate into parametric frameworks or large-scale reproducibility.</li>
+    </ul>
+    <p>
+      Research at ETH Zurich (Gramazio Kohler, Block Research Group) and Zaha Hadid Architects’ CODE group has advanced freeform masonry through robotic fabrication and parametric partitioning, yet these approaches typically rely on custom components or fixed structural logics. None address how standard modular bricks might be robustly adapted to free-form curved surfaces.
+    </p>
+    <p>
+      Porcupine proposes such a system: a parametric framework that arranges standard bricks across freeform geometries with continuous, collision-free, and curvature-conforming layouts—without cutting or customizing units. The algorithm is encapsulated as a C# plugin for Grasshopper and validated through three 1:8 physical prototypes, demonstrating both geometric adaptability and construction feasibility.
+    </p>
+    <p>
+      In practice, the system operates within the Grasshopper environment, taking a target freeform surface and a key curve as its primary inputs. The curve establishes the initial brick orientation and governs transitions across complex geometries; at present, more than one curves are handled manually. Apertures can be addressed by arranging bricks along their edges to preserve continuity. Brick joint widths can be adjusted within design-specified ranges, though precise control is influenced by local brick orientations on curved surfaces. To enhance robustness, Porcupine employs an adaptive unit optimization mechanism and incorporates strategies inspired by some typical algorithms, improving overall layout continuity and consistency. When extreme curvature or boundary conditions create anomalous gaps, the system resolves them by different ways, for instance, insertion of dedicated filler units. The output is a collision-free, curvature-conforming brick arrangement ready for digital fabrication or manual construction.
+    </p>
+    <p>
+      Porcupine resolves a long-standing tension in architectural theory and practice: the incompatibility between the equality of identical modules and the freedom of adapting to complex global geometries. While Structuralism and modular design theory have conceptualized this balance for decades, no prior system has achieved it without sacrificing either equality (through customization) or freedom (through geometric simplification). Porcupine demonstrates, for the first time, a computational and constructible framework where standard units retain their identity yet conform to any form—an architectural embodiment of coexistence between equality and freedom.
+    </p>
+    <p>
+      In the future, this system could evolve into a structure- and performance-driven generative framework: calculating self-supporting load relationships between bricks, integrating robotic assembly, and adapting to extreme environments. Porcupine’s logic can be applied to diverse materials—from industrially produced bricks to locally sourced earth blocks, stone, or recycled masonry—allowing construction to respond to the specific resources, skills, and cultural context of each site. By grounding freedom of form in the equality of standard units and the specificity of local materials, the system supports scales from small community structures to extraterrestrial habitats. Operating in a fully digital environment—where every brick carries precise spatial coordinates—Porcupine naturally enables intelligent construction workflows, from robotic and drone-based assembly to deployment in environments where human labor is limited or impossible.
+    </p>
+  </div>
+  <h2>Example</h2>
+  <div class="card">
+    <p>Pay attention to the scale, 125% or higher is recommended to restore the actual line width.</p>
+    <div class="responsive-video" style="height: 80vh;">
+      <object data="assets/ALL.pdf" type="application/pdf" width="100%" height="100%">
+        <p>Unable to preview inline, please <a href="assets/ALL.pdf" target="_blank" rel="noopener">click here to download and view</a>.</p>
+      </object>
+    </div>
+    <p><a class="cta" href="assets/RESEARCH.pdf" download>Download Example.pdf</a></p>
+  </div>
+  <h2>Case Reference PDF</h2>
+  <div class="card">
+    <div class="responsive-video" style="height: 80vh;">
+      <object data="assets/RESEARCH.pdf" type="application/pdf" width="100%" height="100%">
+        <p>Unable to preview inline, please <a href="assets/RESEARCH.pdf" target="_blank" rel="noopener">click here to download and view</a>.</p>
+      </object>
+    </div>
+    <p><a class="cta" href="assets/RESEARCH.pdf" download>Download Case Reference.pdf</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h4>About Porcupine</h4>
+        <p>Porcupine is a Grasshopper plug-in for arranging standard units on freeform surfaces, emphasizing constructability, continuity, and curvature conformity.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: <a href="mailto:contact@example.com">hanyi19992008@gmail.com</a></li>
+          <li>GitHub: <a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Porcupine. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
